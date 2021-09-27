@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: 05/And4way16.hdl
+
+/**
+ * And4way16:
+ */
+
+CHIP And4way16 {
+  IN first[16], second[16], third[16], fourth[16];  
+  OUT out[16];
+
+  PARTS:
+  And16(a=first, b = second, out=w1);
+  And16(a=w1, b = third, out=w2);
+  And16(a=w2, b = fourth, out=out);
+}

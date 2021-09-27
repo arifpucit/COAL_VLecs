@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: 08/BitALU.hdl
+
+/**
+ * BitALU:
+ */
+
+CHIP BitALU  {  
+    IN a, b, sel;  
+    OUT out;
+  
+     PARTS:
+       And(a=a, b=b, out=andOut);  
+      Or(a=a, b=b, out=orOut);
+        Mux (a=andOut, b=orOut, sel=sel, out=out);
+}

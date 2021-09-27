@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: /04/Decoder.hdl
+
+/**
+ * Decoder:
+ */
+
+CHIP Decoder {
+  IN a, b;  
+  OUT d0, d1, d2, d3;
+   PARTS:
+  Not(in=a, out=Nota);
+  Not(in=b, out=Notb);
+  And(a=Nota, b=Notb, out=d0);
+  And(a=Nota, b=b, out=d1);
+  And(a=a, b=Notb, out=d2);
+  And(a=a, b=b, out=d3);  
+}

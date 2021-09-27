@@ -1,0 +1,25 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: /04/Encoder.hdl
+
+/**
+ * Encoder:
+ */
+
+CHIP Encoder {
+  IN d0,d1,d2,d3,d4,d5,d6,d7;  
+  OUT a, b, c;
+   PARTS:
+   Or(a=d4, b=d5, out=w1);
+   Or(a=d6, b=d7, out=w2);
+   Or(a=w1, b=w2, out=a);
+
+   Or(a=d2, b=d3, out=w3);
+   Or(a=d6, b=d7, out=w4);
+   Or(a=w3, b=w4, out=b);
+
+   Or(a=d1, b=d3, out=w5);
+   Or(a=d5, b=d7, out=w6);
+   Or(a=w5, b=w6, out=c);
+}

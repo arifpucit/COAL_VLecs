@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: 05/Mux4way.hdl
+
+/**
+ * Mux4way:
+ */
+
+CHIP Mux4way{
+  IN a,b,c,d, sel[2];  
+  OUT out;
+
+  PARTS:
+  Mux(a=a, b=b, sel=sel[0], out=w1);
+  Mux(a=c, b=d, sel=sel[0], out=w2);
+  Mux(a=w1, b=w2, sel=sel[1], out=out);
+}
